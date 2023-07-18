@@ -33,3 +33,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
       loadingOverlay.classList.remove("active");
     });
   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var navbar = document.querySelector('.navbar');
+    var navbarToggle = document.querySelector('.navbar-toggler');
+
+    // Bắt sự kiện click trên navbarToggle để mở hoặc đóng menu
+    navbarToggle.addEventListener('click', function() {
+      navbar.classList.toggle('active');
+    });
+
+    // Bắt sự kiện click trên document để đóng menu nếu click bên ngoài vùng menu
+    document.addEventListener('click', function(event) {
+      var targetElement = event.target;
+
+      // Kiểm tra xem click có diễn ra bên ngoài vùng menu hay không
+      if (!navbar.contains(targetElement) && !navbarToggle.contains(targetElement)) {
+        navbar.classList.remove('active');
+      }
+    });
+  });
