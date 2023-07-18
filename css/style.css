@@ -157,12 +157,8 @@ button:focus{
 /*------------------------------------------------------------------
     HEADER
 -------------------------------------------------------------------*/
-.top-navbar {
-    position: relative;
-    z-index: 10;
-  }
-  
-  .top-navbar .navbar {
+/* CSS chung cho tất cả các kích thước màn hình */
+.top-navbar .navbar {
     padding: 15px 0px;
     position: fixed;
     width: 100%;
@@ -184,8 +180,6 @@ button:focus{
   }
   
   .top-navbar .navbar-light .navbar-nav .nav-item.active .nav-link {
-    /* background: #1F1F1F;
-    color: #ffffff; */
     border-bottom: 5px solid black;
   }
   
@@ -195,8 +189,6 @@ button:focus{
   }
   
   .navbar-expand-lg .navbar-nav .dropdown-menu a.dropdown-item:hover {
-    /* background: #1F1F1F;
-    color: #ffffff; */
     border-bottom: 5px solid black;
   }
   
@@ -224,7 +216,28 @@ button:focus{
     transform: scaleX(1);
     background-color: black;
   }
-
+  
+  /* CSS cho thiết bị di động */
+  @media (max-width: 767px) {
+    .top-navbar .navbar {
+      padding: 15px 0px;
+      position: fixed;
+      width: auto; /* Thay đổi chiều rộng thành tự động */
+      right: 0; /* Đặt vị trí sang bên phải */
+      left: auto; /* Loại bỏ vị trí trái */
+      transition: height .3s ease-out, background .3s ease-out, box-shadow .3s ease-out;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      z-index: 100;
+    }
+  
+    .top-navbar .navbar-light .navbar-nav .nav-link {
+      font-size: 16px; /* Giảm kích thước phông chữ */
+      padding: 10px 15px; /* Giảm khoảng cách dọc */
+      margin: 0px 2px; /* Giảm khoảng cách ngang */
+    }
+  }
+  
 /*------------------------------------------------------------------
     Slider
 -------------------------------------------------------------------*/
